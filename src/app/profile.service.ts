@@ -32,7 +32,7 @@ export class ProfileService {
         ​} ​else ​{
           reject({ ​error​: ​'Invalid username' ​})​;
         ​}
-      });
+      }, 3000);
     });
   }
 }
