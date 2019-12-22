@@ -10,6 +10,8 @@
     "@types/jasmine": "^3.3.12",
     "@types/jquery": "^3.3.29",
     "@types/node": "^12.0.2",
+    "@types/angular-animate": "^1.5.10",
+    "@types/angular-material": "^1.1.69",
     "angular-cli-tools": "^1.10.3",
     "angular-mocks": "^1.7.8",
     "angular-ts-decorators": "^3.7.8",
@@ -47,8 +49,6 @@
     "webpack-dev-server": "3.4.1"
   },
   "dependencies": {
-    "@types/angular-animate": "^1.5.10",
-    "@types/angular-material": "^1.1.69",
     "@uirouter/angularjs": "^1.0.22",
     "angular": "^1.7.9",
     "angular-animate": "^1.7.9",

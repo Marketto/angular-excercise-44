@@ -19,11 +19,11 @@
     <div ng-switch="$ctrl.status">
       <p ng-switch-when="LOADING">Loading profile...</p>
       <p ng-switch-when="SAVING">Saving profile...</p>
-      <p ng-switch-when="ERROR">Error! {{$ctrl.errorMessage}}</p>
+      <p ng-switch-when="ERROR">{{$ctrl.errorMessage || 'Error!'}}</p>
     </div>
     <md-input-container>
       <label>Username:</label>
-      <input type="text" ng-model="$ctrl.username" ng-disabled="$ctrl.usernameDisabled">
+      <input type="text" name="username" ng-model="$ctrl.username" ng-disabled="$ctrl.formDisabled">
     </md-input-container>
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from 'angular-ts-decorators';
-import { ProfileService } from '../profile.service';
-import { ISelectedUser } from '../selectedUser.interface';
 import { TProfileStatus } from './profile-status.type';
+import { ProfileService } from './profile.service';
+import { ISelectedUser } from './selectedUser.interface';
 
 @Component({
   selector: 'app-profile-settings',
@@ -37,12 +37,11 @@ export class ProfileSettingsComponent implements OnInit {
   ​public saveProfile() {
     this.errorMessage = null;
     this.status = 'SAVING';
-    this.profileService.setUsername(this.​selectedUser.username)
+    this.profileService.setProfile(this.​selectedUser.username)
       .then(profile => {
-        this.selectedUser = profile;
         this.status = 'READY';
       })
-      .catch(({ error } = {}) => {
+      .catch((error) => {
         this.status = 'ERROR';
         this.errorMessage = error;
       });
@@ -64,11 +63,11 @@ export class ProfileSettingsComponent implements OnInit {
     }
   }
 
-  public get saveDisabled() {
-    return this.usernameDisabled || this.status === 'SAVING';
+  public get saveDisabled(): boolean {
+    return this.formDisabled || this.status === 'SAVING';
   }
 
-  public get usernameDisabled() {
+  public get formDisabled(): boolean {
     return !this.selectedUser || this.status === 'LOADING';
   }
 }
