@@ -6,12 +6,13 @@
   "license": "MIT",
   "devDependencies": {
     "@types/angular": "1.6.54",
+    "@types/angular-animate": "^1.5.10",
+    "@types/angular-material": "^1.1.69",
     "@types/angular-mocks": "^1.7.0",
+    "@types/angular-translate": "^2.16.2",
     "@types/jasmine": "^3.3.12",
     "@types/jquery": "^3.3.29",
     "@types/node": "^12.0.2",
-    "@types/angular-animate": "^1.5.10",
-    "@types/angular-material": "^1.1.69",
     "angular-cli-tools": "^1.10.3",
     "angular-mocks": "^1.7.8",
     "angular-ts-decorators": "^3.7.8",
@@ -56,15 +57,18 @@
     "angular-material": "^1.1.20",
     "angular-messages": "^1.7.9",
     "angular-sanitize": "^1.7.9",
-    "eventemitter3": "3.1.2"
+    "angular-translate": "^2.18.1",
+    "angular-translate-loader-static-files": "^2.18.1",
+    "eventemitter3": "3.1.2",
+    "flag-icon-css": "^3.4.5"
   },
   "scripts": {
-    "prestart": "rimraf dist & copyfiles -f src/assets/* dist/",
+    "prestart": "rimraf dist & copyfiles -f src/assets/**/* dist/ & copyfiles -f src/i18n/**/* dist/i18n/",
     "start": "webpack-dev-server --mode=development --open",
     "prebuild": "npm run prestart",
     "build": "webpack --mode=production --optimize-minimize",
     "test": "karma start --single-run",
     "test:dev": "karma start --browsers Chrome",
-    "clean-build": "rimraf dist & copyfiles -f src/index.html dist/ & copyfiles -f src/assets/* dist/assets & npm run webpack-prod"
+    "clean-build": "npm run prestart & copyfiles -f src/index.html dist/ & npm run webpack-prod"
   }
 }

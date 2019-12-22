@@ -1,2 +1,18 @@
-<h1>{{$ctrl.title}}</h1>
+<md-toolbar class="md-hue-2" translate-namespace="main">
+  <div class="md-toolbar-tools">
+    <h1 flex md-truncate translate=".title"></h1>
+
+    <md-button
+      translate-namespace=".{{language.id}}"
+      class="md-icon-button md-mini"
+      translate-attr="{ 'aria-label': '.label' }"
+      ng-repeat="language in $ctrl.languages"
+      ng-class="{ 'md-fab': $ctrl.isCurrentLanguage(language.id) }"
+      ng-click="$ctrl.setCurrentLanguage(language.id)"
+    >
+      <md-tooltip md-direction="bottom"><span translate=".{{language.id}}.label"></span></md-tooltip>
+      <md-icon class="flag-icon flag-icon-squared" ng-class="'flag-icon-' + language.country"></md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
 <ui-view></ui-view>

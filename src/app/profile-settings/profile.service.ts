@@ -30,9 +30,9 @@ export class ProfileService {
         .then((profile) => {
           this.setUserEmail(`${profile.username}@bluface.com`)
             .then(resolve)
-            .catch(() => reject(`Error on email generation!`));
+            .catch(() => reject(`emailGenerationError`));
         })
-        .catch(({ error }) => reject(`Error! ${error}`));
+        .catch(({ error }) => reject(`invalidUserName`));
     });
   }
 

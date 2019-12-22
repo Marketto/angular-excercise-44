@@ -1,32 +1,26 @@
-<!--<div>
-  <h1>Profile</h1>
-  <p>Loading profile...</p>
-  <p>Saving profile...</p>
-  <p>Error!</p>
-  <div>
-    <label>Username:</label>
-    <input type="text"/>
-    <input type="button" value="Save"/>
-  </div>
-</div>-->
-<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+<md-card translate-namespace="profile">
   <md-card-title>
     <md-card-title-text>
-      <span class="md-headline">Profile</span>
+      <span class="md-headline" translate=".title"></span>
     </md-card-title-text>
   </md-card-title>
   <md-card-content layout="column" layout-align="space-between">
-    <div ng-switch="$ctrl.status">
-      <p ng-switch-when="LOADING">Loading profile...</p>
-      <p ng-switch-when="SAVING">Saving profile...</p>
-      <p ng-switch-when="ERROR">{{$ctrl.errorMessage || 'Error!'}}</p>
+    <div ng-switch="$ctrl.status" translate-namespace=".message">
+      <p ng-switch-when="LOADING"><span translate=".loading"></span>...</p>
+      <p ng-switch-when="SAVING"><span translate=".saving"></span>...</p>
+      <p ng-switch-when="ERROR" translate=".{{$ctrl.errorMessage || 'generic'}}"></p>
     </div>
-    <md-input-container>
-      <label>Username:</label>
-      <input type="text" name="username" ng-model="$ctrl.username" ng-disabled="$ctrl.formDisabled">
+    <md-input-container translate-namespace=".form.username">
+      <label><span translate=".label"></span>:</label>
+      <input
+        type="text"
+        name="username"
+        ng-model="$ctrl.username"
+        ng-disabled="$ctrl.formDisabled"
+      >
     </md-input-container>
   </md-card-content>
-  <md-card-actions layout="row" layout-align="end center">
-    <md-button ng-disabled="$ctrl.saveDisabled" ng-click="$ctrl.saveProfile()">Save</md-button>
+  <md-card-actions layout="row" layout-align="end center" translate-namespace=".form.button">
+    <md-button ng-disabled="$ctrl.saveDisabled" ng-click="$ctrl.saveProfile()" translate=".save"></md-button>
   </md-card-actions>
 </md-card>

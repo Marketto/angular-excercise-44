@@ -1,0 +1,32 @@
+{
+  "main": {
+    "title": "Angular Excercise 44",
+    "en": {
+      "label": "English"
+    },
+    "it": {
+      "label": "Italian"
+    },
+    "ru": {
+      "label": "Russian"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "form": {
+      "username": {
+        "label": "User name"
+      },
+      "button": {
+        "save": "Save"
+      }
+    },
+    "message": {
+      "loading": "Loading profile",
+      "saving": "Saving profile",
+      "error": "Error!",
+      "invalidUserName": "Error! Invalid username",
+      "emailGenerationError": "Error on email generation!"
+    }
+  }
+}
