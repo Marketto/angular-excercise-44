@@ -47,8 +47,15 @@
     "webpack-dev-server": "3.4.1"
   },
   "dependencies": {
+    "@types/angular-animate": "^1.5.10",
+    "@types/angular-material": "^1.1.69",
     "@uirouter/angularjs": "^1.0.22",
     "angular": "^1.7.9",
+    "angular-animate": "^1.7.9",
+    "angular-aria": "^1.7.9",
+    "angular-material": "^1.1.20",
+    "angular-messages": "^1.7.9",
+    "angular-sanitize": "^1.7.9",
     "eventemitter3": "3.1.2"
   },
   "scripts": {

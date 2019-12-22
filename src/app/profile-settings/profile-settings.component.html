@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   <h1>Profile</h1>
   <p>Loading profile...</p>
   <p>Saving profile...</p>
@@ -8,4 +8,27 @@
     <input type="text"/>
     <input type="button" value="Save"/>
   </div>
-</div>
+</div>-->
+<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Profile</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content layout="row" layout-align="space-between">
+    <div ng-messages>
+      <p>Loading profile...</p>
+      <p>Saving profile...</p>
+      <p>Error!</p>
+    </div>
+  </md-card-content>
+  <md-card-content layout="row" layout-align="space-between">
+    <md-input-container>
+      <label>Username:</label>
+      <input type="text" ng-model="user">
+    </md-input-container>
+  </md-card-content>
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button>Save</md-button>
+  </md-card-actions>
+</md-card>
