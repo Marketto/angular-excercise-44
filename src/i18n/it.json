@@ -15,7 +15,10 @@
     "title": "Profilo",
     "form": {
       "username": {
-        "label": "Nome utente"
+        "label": "Nome utente",
+        "$error": {
+          "required": "Campo necessario"
+        }
       },
       "button": {
         "save": "Salva"

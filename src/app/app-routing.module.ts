@@ -9,7 +9,7 @@ export interface UiState extends Ng1StateDeclaration {
 }
 
 const routes: UiState[] = [
-  { name: 'index', url: '', redirectTo: 'profile' },
+  { name: 'root', url: '', redirectTo: 'profile' },
   { name: 'profile', url: '/profile', component: ProfileSettingsComponent },
 ];
 

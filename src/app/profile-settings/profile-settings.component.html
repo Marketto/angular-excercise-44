@@ -1,4 +1,4 @@
-<md-card translate-namespace="profile">
+<md-card translate-namespace="profile" class="profile-card">
   <md-card-title>
     <md-card-title-text>
       <span class="md-headline" translate=".title"></span>
@@ -6,21 +6,28 @@
   </md-card-title>
   <md-card-content layout="column" layout-align="space-between">
     <div ng-switch="$ctrl.status" translate-namespace=".message">
-      <p ng-switch-when="LOADING"><span translate=".loading"></span>...</p>
-      <p ng-switch-when="SAVING"><span translate=".saving"></span>...</p>
-      <p ng-switch-when="ERROR" translate=".{{$ctrl.errorMessage || 'generic'}}"></p>
+      <p ng-switch-when="LOADING" md-colors="{color: 'amber'}"><span translate=".loading"></span>...</p>
+      <p ng-switch-when="SAVING" md-colors="{color: 'amber'}"><span translate=".saving"></span>...</p>
+      <p ng-switch-when="ERROR" translate=".{{$ctrl.errorMessage || 'generic'}}" md-colors="{color: 'red'}"></p>
     </div>
-    <md-input-container translate-namespace=".form.username">
-      <label><span translate=".label"></span>:</label>
-      <input
-        type="text"
-        name="username"
-        ng-model="$ctrl.username"
-        ng-disabled="$ctrl.formDisabled"
-      >
-    </md-input-container>
+    <div ng-form="profileForm" translate-namespace=".form">
+      <md-input-container translate-namespace=".username">
+        <label><span translate=".label"></span>:</label>
+        <input
+          type="text"
+          name="username"
+          required
+          trim
+          ng-model="$ctrl.username"
+          ng-disabled="$ctrl.formDisabled"
+        >
+        <p ng-messages="profileForm.username.$error" translate-namespace=".$error">
+          <span ng-message="required" translate=".required"></span>
+        </p>
+      </md-input-container>
+    </div>
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center" translate-namespace=".form.button">
-    <md-button ng-disabled="$ctrl.saveDisabled" ng-click="$ctrl.saveProfile()" translate=".save"></md-button>
+    <md-button ng-disabled="$ctrl.saveDisabled || profileForm.$invalid" ng-click="$ctrl.saveProfile()" translate=".save"></md-button>
   </md-card-actions>
 </md-card>
