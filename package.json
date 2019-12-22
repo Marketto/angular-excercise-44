@@ -1,8 +1,8 @@
 {
-  "name": "angularjs-typescript-webpack",
-  "version": "2.1.1",
-  "description": "Angularjs-typescript-webpack starter project",
-  "repository": "https://github.com/vsternbach/angularjs-typescript-webpack",
+  "name": "@marketto/angularjs-excercise-44",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Angularjs Excercise 44",
   "license": "MIT",
   "devDependencies": {
     "@types/angular": "1.6.54",
@@ -65,10 +65,8 @@
   "scripts": {
     "prestart": "rimraf dist & copyfiles -f src/assets/**/* dist/ & copyfiles -f src/i18n/**/* dist/i18n/",
     "start": "webpack-dev-server --mode=development --open",
-    "prebuild": "npm run prestart",
-    "build": "webpack --mode=production --optimize-minimize",
+    "build": "npm run prestart & webpack --mode=production --optimize-minimize",
     "test": "karma start --single-run",
-    "test:dev": "karma start --browsers Chrome",
-    "clean-build": "npm run prestart & copyfiles -f src/index.html dist/ & npm run webpack-prod"
+    "test:dev": "karma start --browsers Chrome"
   }
 }

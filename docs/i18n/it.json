@@ -1,0 +1,35 @@
+{
+  "main": {
+    "title": "Esercitazione Angular N°44",
+    "en": {
+      "label": "Inglese"
+    },
+    "it": {
+      "label": "Italiano"
+    },
+    "ru": {
+      "label": "Russo"
+    }
+  },
+  "profile": {
+    "title": "Profilo",
+    "form": {
+      "username": {
+        "label": "Nome utente",
+        "$error": {
+          "required": "Campo necessario"
+        }
+      },
+      "button": {
+        "save": "Salva"
+      }
+    },
+    "message": {
+      "loading": "Caricamento profilo",
+      "saving": "Salvataggio profilo",
+      "error": "Errore!",
+      "invalidUserName": "Errore! Nome utente non valido",
+      "emailGenerationError": "Errore nella creazione dell'email!"
+    }
+  }
+}
