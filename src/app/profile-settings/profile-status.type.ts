@@ -1,1 +1,1 @@
-export type TProfileStatus = 'LOADED'|'LOADING'|'SAVING'|'SAVED'|'ERROR';
+export type TProfileStatus = 'READY'|'LOADING'|'SAVING'|'ERROR';

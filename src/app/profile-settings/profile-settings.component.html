@@ -19,7 +19,7 @@
     <div ng-switch="$ctrl.status">
       <p ng-switch-when="LOADING">Loading profile...</p>
       <p ng-switch-when="SAVING">Saving profile...</p>
-      <p ng-switch-when="ERROR" class="md-warn">Error!</p>
+      <p ng-switch-when="ERROR">Error! {{$ctrl.errorMessage}}</p>
     </div>
     <md-input-container>
       <label>Username:</label>

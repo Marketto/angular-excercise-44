@@ -11,7 +11,8 @@ import { TProfileStatus } from './profile-status.type';
 export class ProfileSettingsComponent implements OnInit {
   ​public ​selectedUser: ISelectedUser;
   ​public ​title: string​;
-  public status: TProfileStatus = 'LOADING';
+  public status: TProfileStatus;
+  public errorMessage: string;
 
   /*@ngInject*/
   constructor(private profileService: ProfileService) { }
@@ -21,10 +22,12 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   public loadProfile() {
+    this.errorMessage = null;
+    this.status = 'LOADING';
     this.profileService.getProfileUser()
       .then(profile => {
         this.selectedUser = profile;
-        this.status = 'SAVED';
+        this.status = 'READY';
       })
       .catch(() => {
         this.status = 'ERROR';
@@ -32,13 +35,16 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   ​public saveProfile() {
+    this.errorMessage = null;
+    this.status = 'SAVING';
     this.profileService.setUsername(this.​selectedUser.username)
       .then(profile => {
         this.selectedUser = profile;
-        this.status = 'SAVED';
+        this.status = 'READY';
       })
-      .catch(() => {
+      .catch(({ error } = {}) => {
         this.status = 'ERROR';
+        this.errorMessage = error;
       });
   ​}
 
@@ -51,15 +57,18 @@ export class ProfileSettingsComponent implements OnInit {
   public set username(value: string) {
     if (this.​selectedUser) {
       this.​selectedUser.username = value;
-      this.status = 'LOADED';
+      if (this.status === 'ERROR') {
+        this.status = 'READY';
+      }
+      this.errorMessage = null;
     }
   }
 
   public get saveDisabled() {
-    return this.usernameDisabled || this.status === 'SAVED';
+    return this.usernameDisabled || this.status === 'SAVING';
   }
 
   public get usernameDisabled() {
-    return !this.selectedUser || !['LOADED', 'SAVED', 'ERROR'].includes(this.status);
+    return !this.selectedUser || this.status === 'LOADING';
   }
 }
